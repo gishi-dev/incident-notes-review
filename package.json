@@ -1,0 +1,14 @@
+{
+  "name": "incident-notes-review",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "架空の事故メモを人の確認待ちに渡す公開デモ",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check server.mjs && node --check app.js"
+  },
+  "dependencies": {}
+}

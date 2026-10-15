@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>事故メモの確認 | 公開デモ</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header><span>サンプル商事 · 架空の社内記録</span><h1>事故メモを、人の確認へ</h1><p>原文と整理候補を照合し、残る確認事項と次の担当を記録します。</p></header>
+  <main>
+    <aside>実演モード：保存済みのAI候補を再生しています。その場でAIを呼んでいません。メモを変えてもAIは再処理しません。原因や報告の要否は判定しません。</aside>
+    <div class="toolbar"><label>事故 <select id="incident"></select></label><label>確認者（架空の役割名） <input id="reviewer" value="確認担当"></label><button id="save">社内メモを保存</button><button id="export">JSONを書き出す</button><button id="show-json">JSONを表示する</button></div>
+    <p id="message" role="status" aria-live="polite"></p>
+    <section><h2>1. 原文と整理候補</h2><p id="situation"></p><div id="rows"></div><details><summary>メモを追加</summary><label>役割 <input id="new-role" value="担当者"></label><label>記録時刻 <input id="new-time" type="time" value="11:00"></label><label>訂正元（任意） <input id="new-corrects" placeholder="A02"></label><label>本文 <textarea id="new-text"></textarea></label><button id="add">追加する</button></details></section>
+    <section><h2>2. 原記録との照合・人の判断</h2><div id="review"></div></section>
+    <section><h2>3. 確認待ちと次の担当</h2><p>人が確定するまでは全行が確認待ちです。確定後も未確認の範囲や未解消の食い違いが残る行を保持します。</p><div id="pending"></div></section>
+    <section><h2>4. 確認待ち付きの社内メモ</h2><label>現時点の状況（人が編集）<textarea id="human-situation"></textarea></label><pre id="memo"></pre><details><summary>版・編集・判断の履歴</summary><pre id="history"></pre></details><details><summary>書き出したJSONを表示・コピー</summary><textarea id="export-preview" readonly aria-label="書き出したJSON"></textarea></details></section>
+    <section><h2>任意の生成AIで整理する場合</h2><p>下の架空メモと指示をコピーして利用できます。この画面から外部へ送信しません。出力は候補として貼り付け、人が照合してください。</p><button id="prompt">コピー用の指示を表示</button><textarea id="prompt-text" readonly aria-label="コピー用の指示"></textarea><button id="copy">指示をコピー</button><label>AIのJSON出力<textarea id="import-text" placeholder="JSONを貼り付け"></textarea></label><button id="import">候補を読み込む</button></section>
+  </main>
+  <footer>公開デモ · 会社・人物・事故・記録はすべて架空です。実績や分類精度を示すものではありません。</footer>
+</body>
+</html>
